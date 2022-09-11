@@ -6,6 +6,8 @@
 
 // 9012 -> 12
 
+// Метод работает, как для положительных, так и для отрицательных чисел.
+
 int ReadNumber(string message)
 {
 Console.WriteLine(message);
@@ -15,13 +17,27 @@ return Convert.ToInt32(Console.ReadLine());
 
 int SummOfAllNumbers(int a)
 {
-int summ = 0;    
+int summ = 0; 
 
-while(a / 10 > 1)
+if(a < 0)
+{
+   a = Math.Abs(a); 
+}
+
+while(a >= 100)
+{
+
+
+summ = summ + (a % 10);
+a = a / 10;
+}
+if(a < 100)
 {
 summ = summ + (a % 10);
+a = a / 10;
+summ = summ + a;
 }
-summ = summ + (a / 10);
+
 
 return summ;
 
