@@ -6,14 +6,20 @@
 
 // Не использовать Math.Pow() и аналоги!
 
-// Алгоритм работает, как для положительных, так и для отрицательных чисел A. Не работает для отрицательных чисел B, используется тип данных int.
+// Метод работает, как для положительных, так и для отрицательных чисел A.
 
 
-Console.WriteLine("Введите число A: ");
-int A = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine("Введите число B: ");
-int B = Convert.ToInt32(Console.ReadLine());
+int ReadNumber(string message)
+{
+Console.WriteLine(message);
+return Convert.ToInt32(Console.ReadLine());
+
+}
+
+int AtoDegreeB(int A, int B)
+{
+
 
 int count = 1;
 int degree = A;
@@ -21,7 +27,7 @@ int degree = A;
 if(B < 0)
 {
 Console.WriteLine("Вы ввели недопустимое значение числа B для используемого типа данных.");
-return;
+return -1;
 }
 
 while(count < B)
@@ -39,6 +45,13 @@ if(A < 0)
 {
 degree = -Math.Abs(degree);
 }
+return degree;
+}
 
+int A = ReadNumber("Введите число A:");
 
-Console.WriteLine($"Число A, возведенное в степень B равно {degree}");
+int B = ReadNumber("Введите число B:");
+
+int result = AtoDegreeB(A, B);
+
+Console.WriteLine($"Число A, возведенное в степень B, равно {result}");
