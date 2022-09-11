@@ -30,6 +30,13 @@ Console.WriteLine("Вы ввели недопустимое значение ч�
 return -1;
 }
 
+if(B == 0 && A == 0)
+{
+Console.WriteLine("Вы ввели недопустимые значения чисел A и B.");
+return -1;    
+}
+
+
 while(count < B)
 {
  degree = degree * A;
@@ -41,11 +48,24 @@ if(B == 0)
 degree = 1;
 }
 
-if(A < 0)
+if(A < 0 && B % 2 == 0)
+{
+degree = Math.Abs(degree);
+}
+
+if(A < 0 && B % 2 > 0)
 {
 degree = -Math.Abs(degree);
 }
+
+if(A < 0 && B == 0)
+{
+degree = 1;
+}
+
 return degree;
+
+
 }
 
 int A = ReadNumber("Введите число A:");
